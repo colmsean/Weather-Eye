@@ -1,0 +1,108 @@
+A computer can display an electronic video .
+Administration:
+Aims of the Project:
+Also the user can rotate images .
+A program can animate a recorded film .
+A query of google found demonstrations of video tracking (of butterflies) .
+A query to internet search engines returned potential approaches to investigate .
+as by default images are in Red Green Blue format
+As it is possible to take an image at rotate it by an angle (in radians).
+A web search found what seemed to be such a program . 
+Basic Image Manipulation:
+Broad Outline:
+Can a program perform (specified) object recognition ?
+Can the code be reused into other contexts ?
+Code Quality:
+Computer software can replay captured electronic video .
+could help with the project aim
+create a matrix, multiply two matrices, find the transpose of a matrix .
+Deliverables:
+Detail the (mathematical) formulae required ?
+Develop software that can track and identify butterflies in a video. 
+Did you notice code snippets that were a 'neat' solution ?
+Does the program treat all data uniformly or was the system less homogeneous ?
+Does the source code contain adequate documentation ?
+Especially useful to perform calculations on matrices two-dimensional tables of values .
+Expand on how the idea is (somewhat) based of neural networks .
+Finally we need to save the modified images to disk
+For what cases or inputs does the software fail ?
+Has the software been extensively tested ?
+How did you choose which language(s) to host the implementation ?
+How does the user indicate a bug, or problem, with the code ?
+How does the user interact with the program ?
+How interactive is the software, or is it run in batch mode ?
+How is the software compiled ?
+How robust is the code ?
+How was this done .
+How would you pitch the system to a non-technical audience ?
+If you want you can adjust it to suit personal requirements .
+Informally, what is expected of the program ?
+In what way does the code simplify the problem domain ?
+I set out to install and test octave .
+Is the code a general solution?
+Is the program restricted to a single task ?
+Is the program the conjunction of several procedures ?
+Is the speed of the execution of the code a large concern ?
+It is possible for a camera to record a video in electronic form .
+It is sometimes convenient to convert an image to grey-scale, 
+It was found that octave is a free software equivalent for Mat-Lab?. 
+Load pictures, to load in a picture of various format and store it in a convenient place. 
+Mathematical Basis of Video:
+Mathematical Match:
+MatLabAndOctave:
+Matlab is provided in binary form only so you cannot change it .
+Octave can assist in executing mathematical calculations .
+Octave can hold the values of variables and you can apply procedures to them .
+Octave is designed such that you can install an add on or package 
+Octave is free software .
+Octave was installed and used to perform basic operations on matrices: 
+one such package is designed to provide common operations on images. 
+Query string : “ buffer-fly video detection “
+Recognise a fuzzy match, ie partial similarities, related, but not exactly the same .
+Science has produced a slew of filters to produce modified (by a formula) of a picture: 
+Software can analyse (perform numerical calculations on) .
+Software can detect regions satisfying certain criteria, can this be aligned with object occurrence ?
+sometimes we need to work on images in grey-scale, 
+Technical Prerequisites:
+The first task then was to install and learn octave .
+Theory:
+the picture package provides a utility to effect this transformation.
+The program is a detailed refine version of what steps?
+The program is required to do ?
+The software chosen from above could not run fully 
+The software could detect or pick out just the butterfly .
+To add packages in this case the picture package. 
+To obtain a copy of matlab you must pay a fee .
+User Interface:
+Use the picture package to do the following : 
+Using octave you are part of a community, working together .
+Using packages you can avail of ideas suited to a particular specialisation .
+Was the implementation broadly in line with theory, or were new cases uncovered ?
+Web search indicated that scale invariant feature transform 
+WebSeek prior work:
+Were there changes to the requirements as the project proceeded ?
+What deliverables can be expected ?
+What does the user need to know before launching the program ?
+What do we hope to achieve ?
+What high level algorithms define the software ?
+What interface is used ?
+What is a metric ?  When are two points close ?
+What is needed to explain the basis of the code ?
+What optimizations were made to the basic algorithm(s) ?
+What OS does in need ?   (Windows 7,GNU/Linux)
+What other programmers have written similar code ?
+What other (similar) approaches are there ?
+What other tools are required ?
+What problems, or false starts, were there in creating the program ?
+What services are provided by the software ?
+What task(s) are assigned to the software ?
+What technical decisions were made before writing the code ?
+What theories underly the actual program ?
+What would you like the software to do ?
+When is the program judged successful?
+When you purchase a copy of Matlab you do not get it source code .
+Who is expected to avail of the services provided by the software ?
+Would it be difficult for others to join the project, and adjust to its code ?
+You can define functions and other symbolic constructs .
+You can read in pictures and transform the with formulae and filters .
+You can take an image and rotate it by an angle .
