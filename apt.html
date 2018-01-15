@@ -1,0 +1,240 @@
+<!doctype html>
+<html>
+<head>
+    <title>A simple puzzle ...</title>
+</head>
+<body>
+
+<canvas id="canvas" style="border:1px solid #000"></canvas>
+
+
+<script>
+// All of our JavaScript will go here.
+var total_size=12;
+(function() {
+    var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+    window.requestAnimationFrame = requestAnimationFrame;
+})();
+var x = [1,1,1,1,1,1,1,1,1,1,1,1,1];
+//var x = [3,3,3,3,3,3,3,3,3,3,3,3,3];
+var pos=1;
+var scmh=2;
+var canvas = document.getElementById("canvas"),
+    ctx = canvas.getContext("2d"),
+    width = 500,
+    height = 300,
+    player = {
+      x : width/2,
+      y : height - 5,
+      width : 5,
+      height : 5
+    },
+keys=[];
+ 
+canvas.width = width;
+canvas.height = height;
+function update(){
+ if (keys[38] || keys[32]) {
+}
+// draw a small red box, which will eventually become our player.
+ctx.fillStyle = "red";
+ctx.fillRect(player.x, player.y, player.width, player.height);
+// arrow
+var plc=0;
+for (i=1;i<=total_size;i++){
+plc=i*30+14;
+ctx.fillStyle = "white";
+ctx.fillRect(plc-1,10,3,16);
+}
+plc=pos*30+14;
+// old pointer
+ctx.fillStyle = "black";
+//ctx.fillRect(plc-1,10,3,16);
+for (i=1;i<=total_size;i++){
+ctx.fillStyle = "black";
+ctx.fillRect(i*30,30,28,28);
+if (x[i]==1){
+ctx.fillStyle = "white";
+}
+if (x[i]==2){
+ctx.fillStyle = "gray";
+}
+if (x[i]==3){
+ctx.fillStyle = "black";
+}
+//if (pos==i){
+//ctx.fillStyle = "black";
+//}
+ctx.fillRect(i*30+1,30+1,28-2,28-2);
+}
+//
+//
+//
+ctx.fillStyle = "black";
+var li=0;
+var numcell=12;
+var diff=0;
+var ptr1=0;
+var ptr2=0;
+var gpx1=0;
+var gpy1=0;
+var gpx2=0;
+var theline=90;
+var ext=0;
+var len=0;
+var d=0;
+		for (li=1;li<=numcell;li++){
+			for (len=1;len<=numcell/2;len++){
+				diff=0;
+				for (d=1;d<=len;d++){
+				
+					ptr1=li+d-1;
+					ptr2=ptr1+len;
+					if (ptr1>=1){
+					if (ptr2>=1){
+					if (ptr1<=numcell){
+					if (ptr2<=numcell){
+						if (x[ptr1]==x[ptr2]){
+							//diff=0;
+}
+else {
+diff=1;
+}
+						
+					}
+					}
+					}
+					}
+				}
+			
+				//g.setColor(Color.red);
+				if (diff==0){
+				ctx.fillStyle = "red";	
+				}
+				if (diff==1){
+				ctx.fillStyle = "blue";	
+				}
+				gpx1=(li*30);
+				ext=(30*(len*2));
+				if ((li-1+(len*2))<=numcell){
+					ctx.fillRect(gpx1,theline,ext,1);
+theline+=4;
+}
+				//	all=all&diff;
+			//	}
+			}
+		}
+//
+//
+//
+var px=0;
+var py=0;
+for (h=1;h<=total_size;h++){
+for (v=1;v<=total_size;v++){
+px=h*5;
+py=v*5;
+if (x[h]==x[v]){
+ctx.fillStyle = "white";
+}
+else {
+ctx.fillStyle = "black";
+}
+//ctx.fillRect(px+83,py+77+31,4,4);
+// track point
+//ctx.fillStyle = "black";
+//ctx.fillRect(scmh,20,4,4);
+}}
+ requestAnimationFrame(update);
+}
+document.body.addEventListener("keydown", function(e) {
+    keys[e.keyCode] = true;
+if (keys[38]){
+  // nxt cell
+x[pos]++;
+if (x[pos]>3){
+x[pos]=1;
+}
+}
+if (keys[40]){
+  // prev cell
+x[pos]--;
+if (x[pos]<1){
+x[pos]=3;
+}
+}
+if (keys[39]) {
+       // right arrow
+pos++;
+if (pos>total_size){
+pos=total_size;
+}
+}
+if (keys[37]) {
+       // left arrow
+pos--;
+if (pos<1){
+pos=total_size;
+}
+}
+update();
+});
+document.body.addEventListener("mousedown", function(e) {
+//scmh=e.pageX;
+pos++;
+if (pos>total_size){
+pos=1;
+}
+e.preventDefault();
+},false);
+document.body.addEventListener("keyup", function(e) {
+    keys[e.keyCode] = false;
+});
+window.addEventListener("load", function(){
+  update();
+});
+ document.getElementById('canvas').addEventListener('touchstart',
+    function(ev) {
+ev.preventDefault();
+//pos++;
+//if (pos>10){
+//pos=1;
+//}
+//scmh=ev.pageX;
+var ok2=0;
+var tsx=0;
+var tsy=0;
+tsx=ev.touches[0].pageX;
+tsy=ev.touches[0].pageY;
+// in range ?
+if (tsy>31){
+if (tsy<200){
+  ok2=1;
+}
+}
+//tsx=ev.changedTouches[0].pageX;
+var nuc=0;
+//alert(tsx);
+nuc=tsx-31;
+nuc=nuc/30;
+nuc=nuc+1;
+var nuc2;
+nuc2=Math.floor(nuc);
+//alert(nuc);
+if (nuc2<1 ){nuc2=1;}
+if (nuc2>total_size){nuc2=total_size;}
+// make the change
+if (ok2==1){
+x[nuc2]++;
+if (x[nuc2]>3){x[nuc2]=1;}
+}
+//document.write('ok');
+//document.getElementById('canvas').update();
+update();
+        }, false);
+</script>
+
+<br><br>
+<br><br>
+Developed using materials from <a href="http://www.somethinghitme.com/2013/01/09/creating-a-canvas-platformer-tutorial-part-one/">www.somethinghitme.com</a>
+</body>
+</html>
