@@ -1,0 +1,149 @@
+<!doctype html>
+<html>
+<head>
+    <title>A simple puzzle ...</title>
+</head>
+<body>
+
+<canvas id="canvas" style="border:1px solid #000"></canvas>
+
+
+<script>
+// All of our JavaScript will go here.
+var ckx=300;
+var cky=140;
+
+var total_size=12;
+(function() {
+    var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+    window.requestAnimationFrame = requestAnimationFrame;
+})();
+var x = [1,1,1,1,1,1,1,1,1,1,1,1,1];
+//var x = [3,3,3,3,3,3,3,3,3,3,3,3,3];
+var pos=1;
+var scmh=2;
+var canvas = document.getElementById("canvas"),
+    ctx = canvas.getContext("2d"),
+    width = 500,
+    height = 300,
+    player = {
+      x : width/2,
+      y : height - 5,
+      width : 5,
+      height : 5
+    },
+keys=[];
+ 
+canvas.width = width;
+canvas.height = height;
+function update(){
+ if (keys[38] || keys[32]) {
+}
+
+ctx.fillStyle = "red";
+ctx.fillRect(20,20,80,80);
+
+ctx.fillStyle = "blue";
+ctx.fillRect(50,50,80,80);
+
+ctx.fillStyle = "green";
+ctx.fillRect(80,80,80,80);
+
+ctx.fillStyle = "yellow";
+ctx.fillRect(ckx,0,3,480);
+
+ctx.fillStyle = "orange";
+ctx.fillRect(0,cky,600,3);
+
+ requestAnimationFrame(update);
+}
+document.body.addEventListener("keydown", function(e) {
+    keys[e.keyCode] = true;
+if (keys[38]){
+  // nxt cell
+x[pos]++;
+if (x[pos]>3){
+x[pos]=1;
+}
+}
+if (keys[40]){
+  // prev cell
+x[pos]--;
+if (x[pos]<1){
+x[pos]=3;
+}
+}
+if (keys[39]) {
+       // right arrow
+pos++;
+if (pos>total_size){
+pos=total_size;
+}
+}
+if (keys[37]) {
+       // left arrow
+pos--;
+if (pos<1){
+pos=total_size;
+}
+}
+update();
+});
+document.body.addEventListener("mousedown", function(e) {
+ckx=e.pageX;
+cky=e.pageY;
+
+e.preventDefault();
+},false);
+document.body.addEventListener("keyup", function(e) {
+    keys[e.keyCode] = false;
+});
+window.addEventListener("load", function(){
+  update();
+});
+ document.getElementById('canvas').addEventListener('mousedown',
+    function(e2) {
+e2.preventDefault();
+//pos++;
+//if (pos>10){
+//pos=1;
+//}
+//scmh=ev.pageX;
+var ok2=0;
+var tsx=0;
+var tsy=0;
+tsx=e2.touches[0].pageX;
+tsy=e2.touches[0].pageY;
+// in range ?
+if (tsy>31){
+if (tsy<200){
+  ok2=1;
+}
+}
+//tsx=ev.changedTouches[0].pageX;
+var nuc=0;
+//alert(tsx);
+nuc=tsx-31;
+nuc=nuc/30;
+nuc=nuc+1;
+var nuc2;
+nuc2=Math.floor(nuc);
+//alert(nuc);
+if (nuc2<1 ){nuc2=1;}
+if (nuc2>total_size){nuc2=total_size;}
+// make the change
+if (ok2==1){
+x[nuc2]++;
+if (x[nuc2]>3){x[nuc2]=1;}
+}
+//document.write('ok');
+//document.getElementById('canvas').update();
+update();
+        }, false);
+</script>
+
+<br><br>
+<br><br>
+Developed using materials from <a href="http://www.somethinghitme.com/2013/01/09/creating-a-canvas-platformer-tutorial-part-one/">www.somethinghitme.com</a>
+</body>
+</html>
